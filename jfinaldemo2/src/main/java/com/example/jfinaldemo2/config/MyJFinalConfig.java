@@ -1,6 +1,8 @@
 package com.example.jfinaldemo2.config;
 
 import com.example.jfinaldemo2.controller.BlogController;
+import com.example.jfinaldemo2.controller.DepartmentController;
+import com.example.jfinaldemo2.controller.FileController;
 import com.example.jfinaldemo2.controller.UserController;
 import com.example.jfinaldemo2.model.Blog;
 import com.example.jfinaldemo2.model.User;
@@ -31,6 +33,8 @@ public class MyJFinalConfig extends JFinalConfig {
         // 第三个参数为空时默认为 controllerKey
         me.add("/user", UserController.class);
         me.add("/blog", BlogController.class);
+        me.add("/file", FileController.class);
+        me.add("/aiaf/sgw/v1/products/hospitaldepartment", DepartmentController.class);
     }
 
 
