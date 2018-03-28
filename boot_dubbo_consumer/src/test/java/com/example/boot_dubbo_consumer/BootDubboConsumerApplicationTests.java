@@ -1,4 +1,4 @@
-package com.example.boot_dubbo;
+package com.example.boot_dubbo_consumer;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class BootDubboApplicationTests {
+public class BootDubboConsumerApplicationTests {
 
 	@Test
 	public void contextLoads() {
