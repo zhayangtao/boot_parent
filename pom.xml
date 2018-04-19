@@ -32,6 +32,13 @@
                 <artifactId>druid</artifactId>
                 <version>1.0.18</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/com.uber.nullaway/nullaway -->
+            <dependency>
+                <groupId>com.uber.nullaway</groupId>
+                <artifactId>nullaway</artifactId>
+                <version>0.4.2</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
