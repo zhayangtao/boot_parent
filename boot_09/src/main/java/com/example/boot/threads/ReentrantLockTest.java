@@ -8,6 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @author zhayangtao
  * @version 1.0
  * @since 2018/04/19
+ * 可重入锁测试
  */
 public class ReentrantLockTest {
 
