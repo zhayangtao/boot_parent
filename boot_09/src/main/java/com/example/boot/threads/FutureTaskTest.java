@@ -20,10 +20,6 @@ public class FutureTaskTest {
 
         private String name;
 
-        MyTask(String name) {
-            this.name = name;
-        }
-
         @Override
         public Integer call() throws Exception {
             System.out.println("task" + name + "开始进行计算");
