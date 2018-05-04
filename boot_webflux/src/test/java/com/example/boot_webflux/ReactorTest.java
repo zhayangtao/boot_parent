@@ -1,6 +1,7 @@
 package com.example.boot_webflux;
 
 import org.junit.Test;
+import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 import reactor.core.publisher.BaseSubscriber;
 import reactor.core.publisher.Flux;
@@ -177,5 +178,69 @@ public class ReactorTest {
         // 可以这样使用
         list.stream().map(item -> item.split(" ")).flatMap(Arrays::stream)
                 .distinct().collect(Collectors.toList()).forEach(System.out::println);
+    }
+
+    @Test
+    public void testFluxArray() {
+        Flux.just(1, 2, 3, 4, 5).subscribe(new Subscriber<Integer>() {
+            @Override
+            public void onSubscribe(Subscription subscription) {
+                System.out.println("onSubscribe");
+                subscription.request(6); // 订阅时请求6个元素
+            }
+
+            @Override
+            public void onNext(Integer integer) {
+                System.out.println("onNext:" + integer);
+            }
+
+            @Override
+            public void onError(Throwable throwable) {
+
+            }
+
+            @Override
+            public void onComplete() {
+                System.out.println("onComplete");
+            }
+        });
+    }
+
+    @Test
+    public void testTrans() {
+        int a = 2;
+        int b = 3;
+        a = a + b;
+        b = a - b;
+        a = a - b;
+        System.out.println("a=" + a);
+        System.out.println("b=" + b);
+    }
+
+    @Test
+    public void testInstanceof() {
+        Object hello = "Hello";
+        boolean ofInstance = hello instanceof Object;
+        ofInstance = hello instanceof String;
+        ofInstance = hello instanceof Math;
+        ofInstance = hello instanceof Comparable;
+        ofInstance = hello instanceof Integer;
+    }
+
+    public static class InstanceInitTest {
+        /**
+         *
+         */
+        {
+            int a = 6;
+        }
+        int a = 9;
+
+    }
+
+    @Test
+    public void test1() {
+        InstanceInitTest test  = new InstanceInitTest();
+        System.out.println(test.a);
     }
 }

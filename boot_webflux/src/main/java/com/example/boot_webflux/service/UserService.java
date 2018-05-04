@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.Arrays;
+
 /**
  * @author zhayangtao
  * @version 1.0
@@ -51,4 +53,22 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public void test() {
+        int[] intArr;
+        intArr = new int[]{1, 2, 3, 4, 5};
+        int[] intArr2 = {1, 2, 3, 4, 5};
+        int[] intArr3 = new int[5];
+        intArr3[0] = 1;
+    }
+
+    public static void main(String[] args) {
+        int[][] a = new int[4][];
+        for (int[] anA : a) {
+            System.out.println(Arrays.toString(anA));
+        }
+
+        int[] arr1 = new int[]{3, -4, 25, 16, 30, 18};
+        Arrays.parallelSort(arr1);
+        System.out.println(Arrays.toString(arr1));
+    }
 }
