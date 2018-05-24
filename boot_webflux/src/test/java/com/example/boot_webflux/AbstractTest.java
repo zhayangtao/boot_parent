@@ -106,3 +106,58 @@ class Cow {
         c1.info();
     }
 }
+
+/**
+ * 访问内部/外部类同名参数
+ */
+class DiscernVariable {
+    private String prop = "outer";
+    private class Inner {
+        private String prop = "inner";
+        public void info() {
+            String prop = "局部变量";
+            System.out.println("outer:" + DiscernVariable.this.prop);
+            System.out.println("inner:" + this.prop);
+            System.out.println("prop:" + prop);
+        }
+    }
+}
+
+class StaticInnerClassTest {
+    private int prop = 5;
+    private static int prop2 = 9;
+    static class StaticInnerClass {
+        private static int age;
+        public void accessOuter() {
+            System.out.println(prop2);
+//            System.out.println(prop);
+            System.out.println(new StaticInnerClassTest().prop);
+        }
+    }
+}
+
+interface Product {
+    double getPrice();
+    String getName();
+}
+
+class AnonymousTest {
+    private void test(Product p) {
+        System.out.println("p.getName:" + p.getName() + ",p.getPrice:" + p.getPrice());
+    }
+
+    public static void main(String[] args) {
+        AnonymousTest test = new AnonymousTest();
+        test.test(new Product() {
+            @Override
+            public double getPrice() {
+                return 0;
+            }
+
+            @Override
+            public String getName() {
+                return "AGP";
+            }
+        });
+    }
+}
