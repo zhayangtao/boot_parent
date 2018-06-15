@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class ATestClass {
 
     public static void main(String[] args) {
-        var a = new ArrayList<Integer>();
-        a.add(1);
+//        var a = new ArrayList<Integer>();
+//        a.add(1);
     }
 }
