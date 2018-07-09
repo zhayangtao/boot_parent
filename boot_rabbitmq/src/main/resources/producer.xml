@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+                http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/rabbit
+                http://www.springframework.org/schema/rabbit/spring-rabbit.xsd">
+
+    <rabbit:connection-factory id="connectionFactory" host="127.0.0.1" username="guest" password="guest"
+                               port="5672" virtual-host="/" channel-cache-size="5"/>
+    <rabbit:admin connection-factory="connectionFactory"/>
+
+    <rabbit:queue durable="true" auto-delete="false" exclusive="false" name="spring.queue.demo"/>
+
+    <!--exchange queue binding key-->
+    <rabbit:direct-exchange name="spring.queue.exchange" durable="true" auto-delete="false">
+        <rabbit:bindings>
+            <rabbit:binding queue="spring.queue.demo" key="spring.queue.demo.key"/>
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+
+    <!--spring template-->
+    <rabbit:template id="rabbitTemplate" exchange="spring.queue.exchange" routing-key="spring.queue.demo.key"
+                     connection-factory="connectionFactory" />
+
+</beans>

@@ -21,11 +21,6 @@ import java.lang.reflect.Method;
 public class RedisConfig extends CachingConfigurerSupport {
 
     @Bean
-    public CacheManager cacheManager(RedisTemplate redisTemplate) {
-        return new RedisCacheManager(redisTemplate);
-    }
-
-    @Bean
     public KeyGenerator keyGenerator() {
         return (Object target, Method method, Object... objects) -> {
             StringBuilder sb = new StringBuilder();

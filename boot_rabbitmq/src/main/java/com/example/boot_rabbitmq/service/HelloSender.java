@@ -26,19 +26,19 @@ public class HelloSender {
     public void sendTopic1() {
         System.out.println("sended1");
         String content = "Hello World! message1";
-        this.amqpTemplate.convertAndSend("boot_exchange", "topic.message",  content);
+        this.amqpTemplate.convertAndSend("boot_exchange", "topic.message", content);
     }
 
     public void sendTopic2() {
         System.out.println("sended2");
         String content = "Hello World! message2";
-        this.amqpTemplate.convertAndSend("boot_exchange", "topic.messages",  content);
+        this.amqpTemplate.convertAndSend("boot_exchange", "topic.messages", content);
     }
 
     public void sendFanout() {
         System.out.println("sendFanout");
         String content = "Hello World! sendFanout";
         // fanout模式下第二个参数将被忽略
-        this.amqpTemplate.convertAndSend("boot_fanoutExchange", "",  content);
+        this.amqpTemplate.convertAndSend("boot_fanoutExchange", "", content);
     }
 }

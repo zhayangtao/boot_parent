@@ -9,4 +9,8 @@ import com.jfinal.plugin.activerecord.Model;
  */
 public class Blog extends Model<Blog> {
     public static final Blog dao = new Blog().dao();
+
+    public static void main(String[] args) {
+        dao.save();
+    }
 }
