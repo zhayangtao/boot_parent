@@ -25,7 +25,7 @@ import java.util.Map;
  */
 @Configuration
 @EnableTransactionManagement // 开启事务管理
-@EnableJpaRepositories()
+@EnableJpaRepositories
 @ImportResource(locations = {"classpath:config.xml"})
 public class JpaConfig {
 
