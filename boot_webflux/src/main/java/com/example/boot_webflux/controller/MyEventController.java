@@ -22,7 +22,7 @@ public class MyEventController {
 
     @PostMapping(path = "", consumes = MediaType.APPLICATION_STREAM_JSON_VALUE)
     public Mono<Void> loadEvents(@RequestBody Flux<MyEvent> events) {
-        return null;
+        return this.myEventRepository.insert(events).then();
     }
 
     @GetMapping(path = "", produces = MediaType.APPLICATION_STREAM_JSON_VALUE)

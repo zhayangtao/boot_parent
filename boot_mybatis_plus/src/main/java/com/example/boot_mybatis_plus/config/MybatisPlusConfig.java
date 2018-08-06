@@ -1,6 +1,7 @@
 package com.example.boot_mybatis_plus.config;
 
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
+import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -21,5 +22,12 @@ public class MybatisPlusConfig {
         // 开启 PageHelper 支持
         interceptor.setLocalPage(true);
         return interceptor;
+    }
+
+    @Bean
+    public MapperScannerConfigurer mapperScannerConfigurer() {
+        MapperScannerConfigurer scannerConfigurer = new MapperScannerConfigurer();
+        scannerConfigurer.setBasePackage("com.example.boot_mybatis_plus.mapper*");
+        return scannerConfigurer;
     }
 }
