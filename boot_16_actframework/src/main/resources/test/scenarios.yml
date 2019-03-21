@@ -1,0 +1,8 @@
+scenarios:
+  interactions:
+    - description: test greeting service
+      request:
+        get: /
+        accept: text/plain
+      response:
+        text: hello world

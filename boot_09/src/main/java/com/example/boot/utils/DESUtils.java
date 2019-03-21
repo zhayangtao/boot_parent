@@ -1,12 +1,13 @@
 package com.example.boot.utils;
 
-import sun.misc.BASE64Encoder;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
+import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.util.Base64;
 
 /**
  * @author zhayangtao
@@ -35,13 +36,12 @@ public class DESUtils {
      * @return
      */
     public static String encryptString(String str) {
-        BASE64Encoder base64Encoder = new BASE64Encoder();
         try {
-            byte[] bytes = str.getBytes("UTF8");
+            byte[] bytes = str.getBytes(StandardCharsets.UTF_8);
             Cipher cipher = Cipher.getInstance("DES");
             cipher.init(Cipher.ENCRYPT_MODE, key);
             byte[] encryptBytes = cipher.doFinal(bytes);
-            return base64Encoder.encode(encryptBytes);
+            return Base64.getEncoder().encodeToString(encryptBytes);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
