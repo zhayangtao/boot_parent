@@ -44,6 +44,5 @@
 
   <modules>
     <module>boot_16_actframework</module>
-      <module>boot_jersey</module>
   </modules>
 </project>
