@@ -26,7 +26,7 @@ public class ReceiveLogsToFile {
         String queueName = channel.queueDeclare().getQueue();
         System.out.println("queueName:" + queueName);
         channel.queueBind(queueName, EXCHANGE_NAME, "");
-        QueueingConsumer consumer = new QueueingConsumer(channel);
+        /*QueueingConsumer consumer = new QueueingConsumer(channel);
         // 指定接收者，第二个参数为自动应答，无需手动应答
         channel.basicConsume(queueName, true, consumer);
 
@@ -34,7 +34,7 @@ public class ReceiveLogsToFile {
             QueueingConsumer.Delivery delivery = consumer.nextDelivery();
             String message = new String(delivery.getBody());
             print2File(message);
-        }
+        }*/
     }
 
     private static void print2File(String message) {

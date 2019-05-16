@@ -28,7 +28,7 @@ public class ReceiveLogsTopicForKernel {
         channel.queueBind(queueName, EXCHANGE_NAME, "kernel.*");
         System.out.println("waiting for messages about kernel. To exit press");
 
-        QueueingConsumer consumer = new QueueingConsumer(channel);
+        /*QueueingConsumer consumer = new QueueingConsumer(channel);
         channel.basicConsume(queueName, true, consumer);
 
         while (true)
@@ -39,6 +39,6 @@ public class ReceiveLogsTopicForKernel {
 
             System.out.println(" [x] Received routingKey = " + routingKey
                     + ",msg = " + message + ".");
-        }
+        }*/
     }
 }

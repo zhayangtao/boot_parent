@@ -27,7 +27,7 @@ public class Receive {
         //声明队列，主要为了防止消息接收者先运行此程序，队列还不存在时创建队列。
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
 
-        //创建队列消费者
+       /* //创建队列消费者
         QueueingConsumer consumer = new QueueingConsumer(channel);
         //指定消费队列
         channel.basicConsume(QUEUE_NAME, true, consumer);
@@ -36,7 +36,7 @@ public class Receive {
             QueueingConsumer.Delivery delivery = consumer.nextDelivery();
             String message = new String(delivery.getBody());
             System.out.println("Received Message：'" + message + "'");
-        }
+        }*/
 
     }
 }
