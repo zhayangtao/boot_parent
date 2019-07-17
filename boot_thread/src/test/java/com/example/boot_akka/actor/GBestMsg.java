@@ -3,8 +3,6 @@ package com.example.boot_akka.actor;
 import akka.actor.UntypedAbstractActor;
 import akka.event.Logging;
 import akka.event.LoggingAdapter;
-import javafx.beans.binding.DoubleExpression;
-import scala.collection.parallel.FutureTasks;
 
 import java.util.ArrayList;
 import java.util.List;

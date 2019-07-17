@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+	       http://www.springframework.org/schema/tx
+           http://www.springframework.org/schema/aop
+		   http://www.springframework.org/schema/aop/spring-aop.xsd
+		   http://www.springframework.org/schema/integration
+		   http://www.springframework.org/schema/util
+		   https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="shaDigest" class="com.example.boot_start_learning.chapter4.MessageDigestFactoryBean"
+          p:algorithmName="SHA1"/>
+    <bean id="defaultDigest" class="com.example.boot_start_learning.chapter4.MessageDigestFactoryBean"/>
+
+    <bean id="digester" class="com.example.boot_start_learning.chapter4.MessageDigester" p:digest1-ref="shaDigest"
+          p:digest2-ref="defaultDigest"/>
+
+    <bean id="shaDigestFactory" class="com.example.boot_start_learning.chapter4.MessageDigestFactory"
+          p:algorithmName="SHA1"/>
+
+    <bean id="defaultDigestFactory" class="com.example.boot_start_learning.chapter4.MessageDigestFactory"/>
+
+    <bean id="shaDigest2" factory-bean="defaultDigestFactory" factory-method="createInstance"/>
+
+    <bean id="defaultDigest2" factory-bean="defaultDigestFactory" factory-method="createInstance"/>
+
+    <bean id="digest2" class="com.example.boot_start_learning.chapter4.MessageDigester"
+          p:digest1-ref="shaDigest2" p:digest2-ref="defaultDigest2"/>
+
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource"
+          p:basenames-ref="basenames"/>
+    <util:list id="basenames">
+        <value>buttons</value>
+        <value>labels</value>
+    </util:list>
+
+    <bean id="publisher" class="com.example.boot_start_learning.chapter4.Publisher"/>
+    <bean class="com.example.boot_start_learning.chapter4.MessageEventListener" id="messageEventListener"/>
+</beans>
