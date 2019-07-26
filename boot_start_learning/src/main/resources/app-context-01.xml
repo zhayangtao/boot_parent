@@ -14,6 +14,15 @@
 		   http://www.springframework.org/schema/util
 		   https://www.springframework.org/schema/util/spring-util.xsd">
 
-    <bean id="provider" class="com.example.boot_start_learning.chapter4.ConfigurableMessageProvider"
-          p:message="Love one the weekend"/>
+    <!--<bean id="provider" class="com.example.boot_start_learning.chapter4.ConfigurableMessageProvider"
+          p:message="Love one the weekend"/>-->
+
+
+    <!--<bean id="advice" class="com.example.boot_start_learning.chapter5_spring_aop.SimpleDocumentAdvice"/>
+    <bean id="johnMayer" class="com.example.boot_start_learning.chapter5_spring_aop.GrammyGuitarist"/>
+    <bean id="documentarist" class="com.example.boot_start_learning.chapter5_spring_aop.NewDocumentarist"
+          p:dep-ref="johnMayer">
+    </bean>-->
+
+
 </beans>

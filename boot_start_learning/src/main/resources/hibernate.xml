@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+		   http://www.springframework.org/schema/util
+		   https://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+    <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource"
+          p:driverClassName="com.mysql.cj.jdbc.Driver" p:url="jdbc:mysql:///sampledb?useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=GMT%2B8&amp;useSSL=false"
+          p:username="root" p:password="1234"/>
+
+    <bean class="org.springframework.orm.hibernate5.HibernateTransactionManager" id="transactionManager"
+          p:sessionFactory-ref="sessionFactory"/>
+
+    <bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" id="sessionFactory"
+          p:dataSource-ref="dataSource" p:packagesToScan="com.example.boot_start_learning.chapter7_hibernate.entities"
+          p:hibernateProperties-ref="hibernateProperties"/>
+
+    <util:properties id="hibernateProperties">
+        <prop key="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</prop>
+        <prop key="hibernate.jdbc.max_fetch_depth">3</prop>
+        <prop key="hibernate.jdbc.fetch_size">50</prop>
+        <prop key="hibernate.jdbc.batch_size">10</prop>
+        <prop key="hibernate.hbm2ddl.auto">update</prop>
+        <prop key="hibernate.format_sql">true</prop>
+        <prop key="hibernate.show_sql">true</prop>
+        <prop key="hibernate.use_sql_comments">true</prop>
+    </util:properties>
+</beans>
