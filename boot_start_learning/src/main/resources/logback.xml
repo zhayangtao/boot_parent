@@ -15,6 +15,8 @@
 
     <logger name="org.springframework" level="off"/>
 
+    <logger name="org.springframework.transaction" level="info"/>
+
     <root level="debug">
         <appender-ref ref="console"/>
     </root>

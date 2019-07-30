@@ -1,6 +1,6 @@
 package com.example.boot_start_learning.chapter7_hibernate.dao;
 
-import com.example.boot_start_learning.chapter7_hibernate.config.AppConfig;
+import com.example.boot_start_learning.config.AppConfig;
 import com.example.boot_start_learning.chapter7_hibernate.entities.Singer;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

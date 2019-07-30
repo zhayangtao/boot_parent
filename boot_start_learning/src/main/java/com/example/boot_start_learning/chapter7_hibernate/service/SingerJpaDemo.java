@@ -1,6 +1,6 @@
 package com.example.boot_start_learning.chapter7_hibernate.service;
 
-import com.example.boot_start_learning.chapter7_hibernate.config.JpaConfig;
+import com.example.boot_start_learning.config.JpaConfig;
 import com.example.boot_start_learning.chapter7_hibernate.entities.Album;
 import com.example.boot_start_learning.chapter7_hibernate.entities.Singer;
 import org.junit.After;
