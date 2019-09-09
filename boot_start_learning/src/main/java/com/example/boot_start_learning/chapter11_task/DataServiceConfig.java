@@ -65,7 +65,7 @@ public class DataServiceConfig {
     @Bean
     public EntityManagerFactory entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
-        factoryBean.setPackagesToScan("com.example.boot_start_learning.chapter8_jpa.entities");
+        factoryBean.setPackagesToScan("com.example.boot_start_learning.chapter11_task");
         factoryBean.setJpaVendorAdapter(jpaVendorAdapter());
         factoryBean.setJpaProperties(hibernateProperties());
         factoryBean.setDataSource(dataSource());

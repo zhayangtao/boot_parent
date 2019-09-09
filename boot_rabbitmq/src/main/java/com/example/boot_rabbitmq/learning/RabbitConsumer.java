@@ -30,7 +30,7 @@ public class RabbitConsumer {
         final Channel channel = connection.createChannel();
         // 设置客户端最多接受未被 ack 的消息的个数
         channel.basicQos(64);
-        Consumer consumer = new DefaultConsumer(channel) {
+        Consumer consumer = new DefaultConsumer(channel) {//推模式
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                 System.out.println("recv message: " + new String(body));

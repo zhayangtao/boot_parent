@@ -17,13 +17,13 @@ import java.util.List;
  * @version 1.0
  * @since 2019/07/30
  */
-@Service
+@Service(value = "carService")
 @Repository
 @Transactional
 public class CarServiceImpl implements CarService {
     private static Logger logger = LoggerFactory.getLogger(CarServiceImpl.class);
 
-    public boolean done;
+    private boolean done;
 
     @Autowired
     private CarRepository carRepository;
@@ -47,10 +47,12 @@ public class CarServiceImpl implements CarService {
             int age = Years.yearsBetween(car.getManufactureDate(), current).getYears();
             car.setAge(age);
         });
+        logger.info("Car age update job completed successfully");
+        done = true;
     }
 
     @Override
     public boolean isDone() {
-        return false;
+        return done;
     }
 }

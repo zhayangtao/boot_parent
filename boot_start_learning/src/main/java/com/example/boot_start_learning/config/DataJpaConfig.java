@@ -25,8 +25,8 @@ import java.util.Properties;
  */
 @Configuration
 @EnableTransactionManagement
-@ComponentScan(basePackages = "com.example.boot_start_learning.chapter8_jpa")
-@EnableJpaRepositories(basePackages = "com.example.boot_start_learning.chapter8_jpa")
+@ComponentScan(basePackages = "com.example.boot_start_learning")
+@EnableJpaRepositories(basePackages = "com.example.boot_start_learning")
 public class DataJpaConfig {
     private static Logger logger = LoggerFactory.getLogger(DataJpaConfig.class);
 
